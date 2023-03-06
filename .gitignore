@@ -5,4 +5,7 @@ dist
 node_modules
 apify_storage
 crawlee_storage
-storage
+storage/datasets
+storage/request_queues
+SDK_CRAWLER_STATISTICS_0.json
+SDK_SESSION_POOL_STATE.json

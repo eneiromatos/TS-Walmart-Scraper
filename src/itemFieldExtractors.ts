@@ -197,10 +197,13 @@ function getVariants(itemData: any): IVariant[] {
     return variantList;
   }
 
+  const currentItemSKU = getCodes(itemData).SKU;
+
   for (const key in product.variantsMap) {
     const variant = product.variantsMap[key];
     const url = new URL(variant.productUrl, baseUrl).href;
     const SKU = variant.usItemId;
+    const isCurrentVariant = SKU === currentItemSKU
     const isAvailable = variant.availabilityStatus === "IN_STOCK";
     const pricing: IPricing = {
       salePrice: variant.priceInfo.currentPrice.price,
@@ -223,6 +226,7 @@ function getVariants(itemData: any): IVariant[] {
     );
 
     variantList.push({
+      isCurrentVariant,
       url,
       SKU,
       isAvailable,

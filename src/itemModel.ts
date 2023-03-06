@@ -44,6 +44,7 @@ interface IInformational {
 }
 
 interface IVariant {
+  isCurrentVariant: boolean;
   url: string;
   SKU?: string;
   isAvailable: boolean;
